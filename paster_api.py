@@ -33,6 +33,10 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(result)
 
+    def log_message(self, format, *args):
+        '''Disable default logging'''
+        return
+
 
 httpd = HTTPServer(('', PORT), Handler)
 print('Starting HTTP server at port %d' % PORT)
