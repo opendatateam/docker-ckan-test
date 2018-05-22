@@ -4,7 +4,8 @@
 FROM ckan/ckan:latest
 
 COPY paster_api.py /paster_api.py
-COPY serve.sh /usr/local/bin/serve.sh
+COPY serve.sh /usr/local/bin/
+COPY production.ini $CKAN_CONFIG/
 
 EXPOSE 8000
 

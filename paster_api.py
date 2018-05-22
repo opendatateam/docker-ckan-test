@@ -1,6 +1,7 @@
 '''
 A basic server sending commands to paster
 '''
+import sys
 
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
@@ -10,6 +11,7 @@ PORT = 8000
 
 
 def paster(cmd):
+    sys.stderr.write('Execute "paster {0}"\n'.format(cmd))
     cmd = 'ckan-paster --plugin=ckan {0}'.format(cmd)
     try:
         return check_output(cmd, stderr=STDOUT, shell=True)
